@@ -1,7 +1,7 @@
+import 'colors.dart' as color;
 import 'dart:convert';
 import 'video_info.dart';
 import 'package:get/get.dart';
-import 'colors.dart' as color;
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -15,7 +15,9 @@ class _HomePageState extends State<HomePage> {
   List info = [];
   _initData() {
     DefaultAssetBundle.of(context).loadString("json/info.json").then((value) {
-      info = json.decode(value);
+      setState(() {
+        info = json.decode(value);
+      });
     });
   }
 
@@ -88,7 +90,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
 
             // 3 - Container
             Container(
@@ -146,7 +148,6 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     const SizedBox(height: 25),
-                    //
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
@@ -222,7 +223,6 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                   ),
-
                   //
                   Container(
                     height: 200,
@@ -237,7 +237,6 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                   ),
-
                   //
                   Container(
                     height: 100,
